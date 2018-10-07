@@ -1,0 +1,1 @@
+//This is the model for setting up mysql table via sequelize
