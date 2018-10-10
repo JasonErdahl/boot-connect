@@ -3,3 +3,16 @@ body {
   padding: 0;
 }
 
+div#root {
+  position: relative;
+}
+
+#root{
+  height: 100vh;
+}
+
+.particles-js-canvas-el{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
