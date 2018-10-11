@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Profilecard from './components/Members/ProfileCard/ProfileCard';
 import Jobboard from './components/Dashboard/JobBoard/Jobboard';
 import Modal from './components/Login/Modal/Modal';
-import Login from './components/Login/Login';
+import Login from '../';
 import './App.css';
 
 class App extends Component {

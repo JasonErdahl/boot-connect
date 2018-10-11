@@ -3,7 +3,7 @@ import './LoginForm.css';
 
 
 const Login = props =>    (
-      <div className="login">
+      <div className="LoginForm">
       <h1>&lt; BOOT_CONNECT &#47;&gt;</h1>
       <div className="login">
       <form>
@@ -28,6 +28,4 @@ const Login = props =>    (
       </div>
     );
   
-
-
 export default Login;
