@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Modal from '../../components/Login/Modal/Modal';
 import Login from '../../components/Login/LoginForm/LoginForm';
-import '../components/Login/LoginForm.css';
-import '../components/Login/Modal/Modal.css';
+import '../../components/Login/LoginForm/LoginForm';
+import '../../components/Login/Modal/Modal';
 
 
 class LoginPage extends Component {
 
-    rener() {
+    render() {
         return (
             <Login>
                 <Modal></Modal>
