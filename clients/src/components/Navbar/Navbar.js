@@ -5,28 +5,28 @@ const Navbar = props => (
  <nav>
    <ul>
    <li id="dashboard">
-     <a
+     <div
        onClick={() => props.handlePageChange("DashboardPage")}
        className={
          props.currentPage === "DashboardPage" ? "nav-link active" : "nav-link"
        }
-     > Dashboard </a></li>
+     > Dashboard </div></li>
 
      <li id="member">
-     <a
+     <div
        onClick={() => props.handlePageChange("MemberPage")}
        className={
          props.currentPage === "MemberPage" ? "nav-link active" : "nav-link"
        }
-     > Members </a></li>
+     > Members </div></li>
 
      <li id="logout">
-     <a
+     <div
        onClick={() => props.handlePageChange("LoginPage")}
        className={
          props.currentPage === "LoginPage" ? "nav-link active" : "nav-link"
        }
-     >LogOut </a></li>
+     >LogOut </div></li>
    </ul>
  </nav>
 );
