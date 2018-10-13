@@ -1,8 +1,8 @@
 import React from 'react';
-import './LoginForm';
+import './LoginForm.css';
 
 
-const Login = props =>    (
+const LoginForm = props =>    (
       <div className="LoginForm">
       <h1>&lt; BOOT_CONNECT &#47;&gt;</h1>
       <div className="login">
@@ -22,10 +22,10 @@ const Login = props =>    (
             </div>
             <br></br>
             <p className="text">else</p>
-            <button onClick={this.showModal} id="createAccountBtn" data-toggle="modal" data-target="#exampleModal">Create An Account</button>
+            <button id="createAccountBtn" type="button" data-toggle="modal" data-target="#exampleModal">Create An Account</button>
         </form>
       </div>
       </div>
     );
   
-export default Login;
+export default LoginForm;

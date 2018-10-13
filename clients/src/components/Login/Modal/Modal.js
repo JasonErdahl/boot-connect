@@ -4,7 +4,7 @@ import './Modal.css';
 
 const Modal = props =>(
 
-<div style={{display: props.show ? 'block' : 'none'}} className="modal fade" id="#exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="modal fade" id="#exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
     <div className="modal-content">
       <div className="modal-header">
@@ -34,13 +34,12 @@ const Modal = props =>(
         <input type="password" placeholder="Password" />
       </div>
       <div className="modal-footer">
-        <button type="button" id="closeModalBtn" className="btn btn-secondary" data-dismiss="modal" onClick={props.closeModal}>Close</button>
+        <button type="button" id="closeModalBtn" className="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" id="saveModalBtn" className="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
 </div>
-
 )
 
 export default Modal;

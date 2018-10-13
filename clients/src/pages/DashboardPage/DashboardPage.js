@@ -10,12 +10,20 @@ class DashboardPage extends Component {
 
         document.body.style.background = "url('../../../assets/backgroundColor2.svg')"
 
-        return <div>
-            <Jobboard />
-            <JobInputForm />
-            <Messageboard />
-            <MessageboardInputForm />
-        </div>
+        return (
+            <div className="DashboardPage">
+                <div className="row">
+                    <div className="col-xs-12 col-md-7">
+                        <Jobboard />
+                        <JobInputForm />
+                    </div>
+                    <div className="col-xs-12 col-md-5">
+                        <Messageboard />
+                        <MessageboardInputForm />
+                    </div>
+                </div>
+            </div>
+        )
     }
 };
 
