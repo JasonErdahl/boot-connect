@@ -1,17 +1,31 @@
 //This is the model for setting up mysql table via sequelize
 module.exports = function(sequelize, DataTypes) {
   var DashBoardJobs = sequelize.define("DashBoardJobs", {
-    url:
+    jobTitle:
     {
       type: DataTypes.STRING,
       allowNull: false
     },
-    body:
+    jobCompany:
     {
       type: DataTypes.STRING,
       allowNull: false
     },
-    createDate: DataTypes.DATEONLY
+    jobLocation:
+    {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    jobURL:
+    {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    jobNotes:
+    {
+      type: DataTypes.STRING,
+      allowNull: true
+    }  
   });
   return DashBoardJobs;
 };

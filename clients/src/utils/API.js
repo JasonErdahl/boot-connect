@@ -6,9 +6,7 @@ export default {
     return axios.get("/api/dashboardJobs");
   },
   // Gets the dashboardJob with the given id
-  getDashboardJobs: function(id) {
-    return axios.get("/api/dashboardJobs/" + id);
-  },
+
   // Deletes the dashboardJob with the given id
   deleteDashboardJobs: function(id) {
     return axios.delete("/api/dashboardJobs/" + id);
