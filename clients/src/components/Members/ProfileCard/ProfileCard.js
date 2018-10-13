@@ -14,7 +14,7 @@ const Profilecard = props => (
                 <i class="fab fa-linkedin"></i>
                 <i class="fab fa-facebook"></i>
             </div>
-    <p><button>Contact</button></p>
+    <p><button id="contactBtn">Contact <i class="far fa-envelope"></i></button></p>
 </div>
 
 );

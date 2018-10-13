@@ -1,12 +1,12 @@
 .jobBoard{
     color: #FAEBD7;
     border: 8px double black;
-    width: 45%;
+    width: 85%;
     margin-left: 3%;
     text-align: center;
     height: 500px;
     background-color: rgba(0,0,0,0.60);
-    margin-top: 5%;
+    margin-top: 4%;
     font-family: 'Courier New', Courier, monospace;
     overflow: auto;
     float: left;
@@ -18,27 +18,27 @@
     margin-left: 3%;
     height: auto;
     background-color: transparent;
-    margin-top: 1%;
+    margin-top: 2%;
     font-family: 'Courier New', Courier, monospace;
     float: left;
     border-radius: 10px;
+
 }
 
 .job-info-input{
     margin: 10px;
-    padding: 15px 110px 8px 15px;
+    padding: 15px 180px 8px 15px;
     border-radius: 10px;
     opacity: 0.4;
     font-family: 'Courier New', Courier, monospace;
     outline: none;
-    border: 2px dashed black;
+    border: 1px dashed black;
     color: black;
-    font-weight: 600;
 }
 
 input::placeholder{
     color: black;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 #jobPostBtn{
