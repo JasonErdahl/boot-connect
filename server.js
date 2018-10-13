@@ -14,6 +14,8 @@ const db = require("./models");
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(routes);
   
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {

@@ -1,34 +1,41 @@
 const db = require("../models");
 
-// Defining methods for the DashboardJobsController
+// Defining methods for the DashBoardJobsController
 module.exports = {
   findAll: function(req, res) {
-    db.DashboardJobs
+    db.DashBoardJobs
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        res.status(422).json(err)
+        });
   },
   findById: function(req, res) {
-    db.DashboardJobs
+    db.DashBoardJobs
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.DashboardJobs
+    console.log(req.body)
+    db.DashBoardJobs
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log('there was an error creating the job')
+
+        res.status(422).json(err)
+        });
   },
   update: function(req, res) {
-    db.DashboardJobs
+    db.DashBoardJobs
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.DashboardJobs
+    db.DashBoardJobs
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
