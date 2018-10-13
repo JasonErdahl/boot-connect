@@ -10,7 +10,7 @@
    width: 50%;
    margin-left: 25%;
    text-align: center;
-   margin-top: 15%;
+   margin-top: 10%;
    z-index: 999;
  }
  
@@ -23,13 +23,14 @@
  
  input{
    border-radius: 15px;
-   opacity: 0.4;
+   opacity: 0.3;
    padding: 15px 8px 8px 15px;
    font-family: 'Courier New', Courier, monospace;
    outline: none;
    box-shadow: 3px 8px;
    font-weight: 600;
  }
+
  
  input::placeholder{
    color: black;
