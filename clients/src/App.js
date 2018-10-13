@@ -1,14 +1,46 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import LoginPage from './pages/LoginPage/LoginPage';
+import MembersPage from './pages/MemberPage/MemberPage';
+import Modal from './components/Login/Modal/Modal';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
 
-      </div>
-    );
-  }
+ state = {
+   currentPage: "LoginPage"
+ };
+
+ componentDidMount() {
+}
+
+ handlePageChange = page => {
+   this.setState({ currentPage: page });
+ };
+
+ renderPage = () => {
+   if (this.state.currentPage === "DashboardPage") {
+     return <DashboardPage />;
+   } else if (this.state.currentPage === "LoginPage") {
+     return <LoginPage />;
+   } else if (this.state.currentPage === "MemberPage") {
+     return <MembersPage />;
+   }
+ };
+
+ render() {
+   return (
+     <div>
+       <Modal></Modal>
+       <Navbar
+         currentPage={this.state.currentPage}
+         handlePageChange={this.handlePageChange}
+       />
+       {this.renderPage()}
+     </div>
+   );
+ }
 }
 
 export default App;
