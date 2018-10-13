@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const AWS = require("aws-sdk");
+var keys = require("./keys.js")
 
 
 const app = express();
@@ -30,11 +31,7 @@ const params = {
 };
 
 // Create promise and SNS service object
-const snsPromise = new AWS.SNS({
-  accessKeyId: "AKIAJ3ETLDLKHQP3I3UQ",
-  secretAccessKey: "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",
-  region: "us-east-1"
-})
+const snsPromise = new AWS.SNS(keys.AWS)
   .publish(params)
   //.subscribe to interact and new 
   .promise();
