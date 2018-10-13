@@ -1,7 +1,5 @@
 import React from 'react';
 import './LoginForm.css';
-import Modal from '../Modal/Modal';
-// import { Button, Modal } from '../../../../node_modules/react-bootstrap';
 
 const LoginForm = props => (
 
@@ -28,7 +26,6 @@ const LoginForm = props => (
           Create An Account
 </button>
       </form>
-      <Modal></Modal>
     </div>
   </div>
 );
