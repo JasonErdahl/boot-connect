@@ -5,7 +5,10 @@ const loginRoutes = require("./login");
 const membersRoutes = require("./members");
 
 // Book routes
-router.use("/dashboardJobs", dashboardJobsRoutes);
+router.use("/dashboardJobs", (req, res, next) => {
+    console.log('inside api index')
+    dashboardJobsRoutes(req, res, next)
+});
 router.use("/dashboardMessages", dashboardMessagesRoutes);
 router.use("/login", loginRoutes);
 router.use("/members", membersRoutes);

@@ -26,9 +26,13 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function(file) {
+    // Each Sequelize model is being named after the filename
+    // variable and filename must match!!!
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
+
+  console.log(Object.keys(db))
 
 Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
