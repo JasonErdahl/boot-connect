@@ -20,9 +20,11 @@
     outline: none;
     border: 1px dotted ;
     margin: 3%;
+    font-weight: 700;
+    color: black;
   }
   
-  input::placeholder{
+  #modalInput::placeholder{
     color: black;
   }
   
@@ -105,5 +107,6 @@
   .infoMsg{
     color: black;
     font-weight: bold;
+    font-size: 15px;
   }
   
