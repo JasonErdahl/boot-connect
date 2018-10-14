@@ -1,9 +1,10 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const AWS = require("aws-sdk");
-var keys = require("./keys.js")
-
+const keys = require("./keys.js")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,14 +25,14 @@ if (process.env.NODE_ENV === "production") {
 
 //AWS ======================
 //Set region
-AWS.config.update({ region: "REGION" });
-
+AWS.config.update({ region: "us-east-1" });
+console.log('PROCESS.ENV.AWS '+ process.env);
 // Create publish parameters
 const params = {
   Message: "Hello Bootcamp!!!" /* required */,
   TopicArn: "arn:aws:sns:us-east-1:952591636899:Final_Project"
 };
-
+console.log(JSON.stringify(keys.AWS));
 // Create promise and SNS service object
 const snsPromise = new AWS.SNS(keys.AWS)
   .publish(params)
