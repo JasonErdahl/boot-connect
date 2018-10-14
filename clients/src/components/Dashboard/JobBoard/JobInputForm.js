@@ -48,17 +48,16 @@ class Jobinputform extends Component {
 
   render() {
     return <div className="jobInputForm">
-
-        <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobTitle" placeholder="Job Title..." value={this.state.jobTitle} ></input>
-        <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobCompany" placeholder="Company..." value={this.state.jobCompany}></input>
-        <br></br>
-        <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobLocation" placeholder="Location..." value={this.state.jobLocation}></input>
-        <input onChange={this.handleinputchange} className="job-info-input" type="url" name="jobURL" placeholder="Job link..." value={this.state.jobURL}></input>
-        <br></br>
-        <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobNotes" placeholder="Additonal notes..." value={this.state.jobNotes}></input>
-        <button className={this.validInput() ? 'validInput' : 'invalidInput'} onClick = {this.handleSubmit} id="jobPostBtn">Post</button>
-        {console.log(JSON.stringify(this.state))}
-      </div>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobTitle" placeholder="Job Title..." value={this.state.jobTitle} ></input>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobCompany" placeholder="Company..." value={this.state.jobCompany}></input>
+    <br></br>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobLocation" placeholder="Location..." value={this.state.jobLocation}></input>
+    <input onChange={this.handleinputchange} className="job-info-input" type="url" name="jobURL" placeholder="Job link..." value={this.state.jobURL}></input>
+    <br></br>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobNotes" placeholder="Additonal notes..." value={this.state.jobNotes}></input>
+    <button className={this.validInput() ? 'validInput' : 'invalidInput'} onClick = {this.handleSubmit} id="jobPostBtn">Post</button>
+    {console.log(JSON.stringify(this.state))}
+  </div>
     
   }
 }
