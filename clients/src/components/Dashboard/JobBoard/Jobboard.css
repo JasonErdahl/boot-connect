@@ -1,16 +1,32 @@
+.DashboardPage {
+    max-width: 95%;
+}
+
 .jobBoard{
     color: #FAEBD7;
     border: 8px double black;
     width: 85%;
     margin-left: 3%;
     text-align: center;
-    height: 500px;
+    min-height: 500px;
     background-color: rgba(0,0,0,0.60);
     margin-top: 4%;
     font-family: 'Courier New', Courier, monospace;
     overflow: auto;
     float: left;
     border-radius: 10px;
+}
+.jobBoard .list-overflow-container {
+    margin-top: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.jobBoard ul{
+    display:block;
+}
+.jobBoard li{
+    background-color: rgba(0,0,0,0.30);
+    text-align: left;
 }
 
 .jobInputForm{
@@ -27,13 +43,14 @@
 
 .job-info-input{
     margin: 10px;
-    padding: 15px 180px 8px 15px;
+    /* padding: 15px 180px 8px 15px; */
     border-radius: 10px;
     opacity: 0.4;
     font-family: 'Courier New', Courier, monospace;
     outline: none;
     border: 1px dashed black;
     color: black;
+    min-width: 470px;
 }
 
 input::placeholder{

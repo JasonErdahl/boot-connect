@@ -11,18 +11,28 @@ import './Jobboard.css';
 //   </div>
 // );
 
-class Jobboard extends Component {
+class jobBoard extends Component {
   state = {
-
+    jobs: [],
+    jobTitle: "",
+    jobCompany: "",
+    jobLocation: "",
+    jobURL: ""
   };
 
   componentDidMount() {
+    console.log("Did Mount")
     this.loadJobboard();
   }
 
   loadJobboard = () => {
     API.getDashboardJobs()
-      .then()
+      .then(res => {
+        console.log(res)
+        this.setState({ jobs: res.data.reverse(), jobTitle: "", jobCompany: "", jobLocation: "", jobURL: "", jobNotes: "" }, () => {console.log(this.state)})
+
+      }
+      )
       .catch(err => console.log(err));
   };
 
@@ -34,21 +44,14 @@ class Jobboard extends Component {
   
 
   render() {
-  const inputs = Object.keys(this.state);
-  const inputsLength = inputs.length;
-  
-  return <div className="Jobboard">
+  console.log(this.state);
+  return <div className="jobBoard">
     <h4>Current Opportunities</h4>
-    {inputsLength ? (
+    {this.state.jobs.length ? (
       <List>
-        {this.state.dashboardJobs.map(book => (
-          <ListItem key={this.state._id}>
-            <Link to={"/dashboardJobs/" + this.state._id}>
-              <strong>
-                {this.state.title} by {this.state.author}
-              </strong>
-            </Link>
-            <DeleteBtn onClick={() => this.deleteDashboardJobs(this.state._id)} />
+        {this.state.jobs.map(job => (
+          <ListItem key={job._id}>
+              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, {job.jobURL}
           </ListItem>
         ))}
       </List>
@@ -60,4 +63,4 @@ class Jobboard extends Component {
   }
 }
 
-export default Jobboard;
+export default jobBoard;
