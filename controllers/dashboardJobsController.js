@@ -3,10 +3,10 @@ const db = require("../models");
 // Defining methods for the DashBoardJobsController
 module.exports = {
   findAll: function(req, res) {
+    console.log('finding all jobs in controller')
     db.DashBoardJobs
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .findAll()
+      .then(DashBoardJobs => res.json(DashBoardJobs))
       .catch(err => {
         res.status(422).json(err)
         });

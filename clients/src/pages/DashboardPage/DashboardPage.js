@@ -6,7 +6,8 @@ import Messageboard from "../../components/Dashboard/MessageBoard/Messageboard";
 import MessageboardInputForm from "../../components/Dashboard/MessageBoard/MessageInputForm";
 
 class DashboardPage extends Component {
-    render() {
+    render()
+    {
 
         document.body.style.background = "url('../../../assets/backgroundColor2.svg')"
 

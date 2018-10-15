@@ -35,6 +35,7 @@ import './Messageboard.css';
 
   handleSubmit = () => {
     if (this.validInput()) {
+      console.log('handlesubmit');
       this.postMessage()
     }
   }
@@ -42,11 +43,13 @@ import './Messageboard.css';
   postMessage = () => {
       API.saveDashboardMessages({
         ...this.state  // NAME AND DB FIELD MUST MATCH HERE
-      }).then(() => {
+      }).then((data) => {
+        console.log(data)
         Object.keys(this.state).forEach(key => {
           this.setState({[key]:''})
         })
-      })
+        
+      }).catch(err =>{console.log(err)})
 
   }
 
@@ -54,7 +57,7 @@ import './Messageboard.css';
   render() {
     return <div className="messageInputForm">
      <input onChange={this.handleinputchange} className="message-input-info" type="text" placeholder="Drop a message" name="body" value={this.state.body}></input>
-     <button className={this.validInput() ? 'validInput' : 'invalidInput'}id="msgPostBtn">Post</button>
+     <button className={this.validInput() ? 'validInput' : 'invalidInput'} onClick = {this.handleSubmit} id="msgPostBtn">Post</button>
   </div>
     
   }

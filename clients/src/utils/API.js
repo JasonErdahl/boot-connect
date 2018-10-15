@@ -2,11 +2,13 @@ import axios from "axios";
 
 export default {
   // Gets all dashboardJobs
-  getDashboardJobs: function() {
+  getDashboardJobs: function() {   
+     console.log('getDashboardJobs1')
+
+
     return axios.get("/api/dashboardJobs");
   },
   // Gets the dashboardJob with the given id
-
   // Deletes the dashboardJob with the given id
   deleteDashboardJobs: function(id) {
     return axios.delete("/api/dashboardJobs/" + id);
@@ -19,10 +21,6 @@ export default {
   // Gets all dashboardMessages
   getDashboardMessages: function() {
     return axios.get("/api/dashboardMessages");
-  },
-  // Gets the dashboardMessage with the given id
-  getDashboardMessages: function(id) {
-    return axios.get("/api/dashboardMessages/" + id);
   },
   // Deletes the dashboardMessage with the given id
   deleteDashboardMessages: function(id) {
