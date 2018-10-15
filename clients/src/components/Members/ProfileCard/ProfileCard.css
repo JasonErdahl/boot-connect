@@ -1,10 +1,12 @@
 .Profilecard {
     box-shadow: 5px 5px 9px 5px rgba(0, 0, 0, 0.4);
-    max-width: 300px;
+    width: 20%;
     margin: auto;
     text-align: center;
     font-family: arial;
     border-radius: 10px;
+    margin: 4rem;
+    float: left;
   }
   
   .title {
@@ -39,3 +41,7 @@
   i{
       margin: 4px;
   }
+
+  a {
+    color: black;
+}
