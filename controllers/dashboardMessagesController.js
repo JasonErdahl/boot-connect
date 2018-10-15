@@ -3,32 +3,31 @@ const db = require("../models");
 // Defining methods for the DashboardMessageController
 module.exports = {
   findAll: function(req, res) {
-    db.DashboardMessage
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+    db.DashboardMessages
+      .findAll()
+      .then(DashBoardMessages => res.json(DashBoardMessages))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.DashboardMessage
+    db.DashboardMessages
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.DashboardMessage
+    db.DashboardMessages
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.DashboardMessage
+    db.DashboardMessages
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.DashboardMessage
+    db.DashboardMessages
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
