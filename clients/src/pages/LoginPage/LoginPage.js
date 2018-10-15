@@ -7,11 +7,21 @@ import '../../components/Login/Modal/Modal.css';
 
 class LoginPage extends Component {
 
-    state = {
-        selectedFile: null
-    }
+    state={
+        selectedFile: null,
+        showModal: false
+      }
+    
+      showModal = () =>{
+        this.setState({showModal: true})
+      }
+    
+      hideModal = () =>{
+        this.setState({showModal: false})
+      }
 
-    fileSelectedHandler(event) {
+    fileSelectedHandler = event => {
+        console.log("event output: " , event)
         event.preventDefault();
     
         let reader = new FileReader();
@@ -31,9 +41,13 @@ class LoginPage extends Component {
         document.body.style.background = "url('../../../assets/backgroundColor1.png')"
 
         return (
-                <LoginForm>
-                    <Modal image={this.state.selectedFile} fileSelectedHandler={this.fileSelectedHandler}></Modal>
-                </LoginForm>
+                <React.Fragment>
+                    <LoginForm showModal={this.showModal}>,
+                    </LoginForm>
+                    {this.state.showModal ? <Modal hideModal={this.hideModal} fileSelectedHandler={this.fileSelectedHandler}/> : null}
+                </React.Fragment>
+                
+
         )
     }
 }

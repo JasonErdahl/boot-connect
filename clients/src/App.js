@@ -4,7 +4,6 @@ import Navbar from './components/Navbar/Navbar';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import MembersPage from './pages/MemberPage/MemberPage';
-import Modal from './components/Login/Modal/Modal';
 
 class App extends Component {
 
@@ -31,8 +30,7 @@ class App extends Component {
 
  render() {
    return (
-     <div>
-       <Modal></Modal>
+     <div style={{position: 'relative'}}>
        <Navbar
          currentPage={this.state.currentPage}
          handlePageChange={this.handlePageChange}
