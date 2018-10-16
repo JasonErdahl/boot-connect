@@ -1,18 +1,8 @@
 import React, {Component} from "react";
-import DeleteBtn from "../../DeleteBtn";
 import API from "../../../utils/API";
-import { Link } from "react-router-dom";
 import { List, ListItem } from "../../List";
 import './Messageboard.css';
 
-
-// const Messageboard = props => (
-//   <div className="messageBoard">
-//      <h4>Message Bulletin <i class="fas fa-bullhorn"></i></h4>
-//   </div>
-// );
-
-// export default Messageboard;
 
 class messageBoard extends Component {
   state = {
