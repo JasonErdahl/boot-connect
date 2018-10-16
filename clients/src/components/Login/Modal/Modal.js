@@ -2,47 +2,44 @@ import React from "react";
 import './Modal.css';
 
 class Modal extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.fileInput = React.createRef();
-  }
-  state={
-    value: "Employed",
-    selectedFile: null
+    this.state = {
+      value: '',
+      file: '',
+      imagePreviewUrl: ''
+    };
+    this.handleImageChange = this.handleImageChange.bind(this);
   }
 
-  handleSubmit = event =>{
-    event.preventDefault();
-    console.log(this.fileInput.current.files[0])
+  handleImageChange(e) {
+    e.preventDefault();
+
     let reader = new FileReader();
-    console.log(reader)
-        let file = this.fileInput.current.files[0];
-    
-        reader.onloadend = () => {
-          this.setState({
-            selectedFile: reader.readAsDataURL(file)
-          }, () => {
-            console.log(this.state, ' is state after reading file')
-          });
-        }
+    let file = e.target.files[0];
 
-        reader.onloadstart = () => {
-          this.setState({
-            selectedFile: reader.readAsDataURL(file)
-          }, () => {
-            console.log("this.state, ' is state after reading file'")
-          });
-        }
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
   }
 
   handleJobStatus = event => {
     console.log("Event ", event)
   }
 
-  fileSelectedHandler = event => {
-    console.log(' Event output ', event)
-  }
   render() {
+
+    //Referenced https://gist.github.com/hartzis/0b77920380736f98e4f9 for preview image 
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl) {
+      $imagePreview = (<img id="profileImg" alt="profileImage" src={imagePreviewUrl} />);
+    }
 
     return (
       <div className="modal show" id="#exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -56,15 +53,14 @@ class Modal extends React.Component {
             </div>
             <div className="modal-body">
               <div className="circle">
-                <img className="profile-pic" alt="im" src={this.props.selectedFile} />
+                {$imagePreview}
               </div>
               <br></br>
-              <form onSubmit={this.handleSubmit}>
+              <form>
               <label className="custom-file-upload">
                 <i className="fa fa-camera upload-button"></i> Select Profile
-                <input ref={this.fileInput} type="file" id="file-upload" accept="image/*" />
+                <input onChange={this.handleImageChange} type="file" id="file-upload" accept="image/*" />
               </label>
-              <button type="submit">Preview</button>
               </form>
               <br></br><br></br>
 
