@@ -1,19 +1,25 @@
 .list-overflow-container {
-  max-height: 545px;
-  border: 1px #DDDDDD solid;
+  border: 1px  rgba(0,0,0,0.00) solid;
   border-radius: 4px;
   overflow-y: scroll;
   overflow-x: hidden;
+  margin-top: 30px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .list-overflow-container ul {
   margin: 0;
+  display:block;
 }
 
 .list-overflow-container li {
   border-radius: 0px;
   border-left: none;
   border-right: none;
+  background-color: rgba(0,0,0,0.30);
+  text-align: left;
+  border: 1px solid teal;
 }
 
 .list-overflow-container li * {
