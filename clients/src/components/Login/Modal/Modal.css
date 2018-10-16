@@ -121,3 +121,8 @@
     margin: 2%;
     color: black;
   }
+
+  #profileImg{
+    width: 200px;
+    height: 150px;
+  }
