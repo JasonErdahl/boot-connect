@@ -13,6 +13,7 @@
     border-radius: 10px;
 }
 
+/* 
 .messageBoard .list-overflow-container {
     margin-top: 30px;
     max-height: 400px;
@@ -24,14 +25,16 @@
 .messageBoard li{
     background-color: rgba(0,0,0,0.30);
     text-align: left;
-}
+} 
+*/
 
 .messageInputForm{
     color: #FAEBD7;
     margin-left: 3%;
     height: auto;
     background-color: transparent;
-    margin-top: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
     font-family: 'Courier New', Courier, monospace;
     float: left;
     border-radius: 10px;
@@ -39,7 +42,7 @@
 
 .message-input-info{
     margin: 10px;
-    /* padding: 15px 300px 8px 15px; */
+    padding: 15px 0px 8px 15px;
     border-radius: 10px;
     opacity: 0.4;
     font-family: 'Courier New', Courier, monospace;
@@ -73,4 +76,6 @@ input::placeholder{
     outline: none;
     font-size: 15px;
     margin-left: 10px;
+    display: block;
+    min-width: 200px;
 }

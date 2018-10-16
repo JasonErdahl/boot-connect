@@ -35,6 +35,7 @@
     height: auto;
     background-color: transparent;
     margin-top: 2%;
+    margin-bottom: 2%;
     font-family: 'Courier New', Courier, monospace;
     float: left;
     border-radius: 10px;
@@ -43,14 +44,14 @@
 
 .job-info-input{
     margin: 10px;
-    /* padding: 15px 180px 8px 15px; */
+     padding: 15px 0px 8px 15px;
     border-radius: 10px;
     opacity: 0.4;
     font-family: 'Courier New', Courier, monospace;
     outline: none;
     border: 1px dashed black;
     color: black;
-    min-width: 470px;
+    min-width: 370px;
 }
 
 input::placeholder{
@@ -59,21 +60,22 @@ input::placeholder{
 }
 
 .invalidInput {
-    background: yellow;
-    color: black;
+display:block!important;
 }
 
 .validInput {
-        background: black;
- color: #FAEBD7;
+display:none!important;
 }
 #jobPostBtn{
     border-radius: 15px;
     border: 2px solid black;
-   
+    background: black;
+    color: #FAEBD7;
     padding: 10px;
     font-family: 'Courier New', Courier, monospace;
     outline: none;
     font-size: 15px;
     margin-left: 10px;
+    display: block;
+    min-width: 200px;
 }
