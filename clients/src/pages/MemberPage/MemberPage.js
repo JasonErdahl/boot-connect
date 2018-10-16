@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import Profilecard from "../../components/Members/ProfileCard/ProfileCard";
-import members from "./members.json"
+import API from "../../utils/API";
 
 class MemberPage extends Component {
 
     state = {
-        members
+        members: []
       };
+
+      componentDidMount() {
+        console.log("Did Mount")
+        this.loadMembers();
+      }
+
+      loadMembers = () => {
+        API.getMembers()
+          .then(res => {
+            console.log(res)
+            this.setState({ members: res.data.reverse()}, () => {console.log(this.state)})
+    
+          }
+          )
+          .catch(err => console.log(err));
+      };
+
 
     render() {
 
-        //To switch to  background 
+        //To switch to  background for each page
         document.body.style.background = "url('../../../assets/backgroundColor3.png')"
 
         return (
@@ -19,12 +36,13 @@ class MemberPage extends Component {
                     <Profilecard
                         firstName={member.firstName}
                         lastName={member.lastName}
-                        image={member.image}
-                        githubLink={member.githubLink}
-                        linkedinLink={member.linkedinLink}
-                        portfolioLink={member.portfolioLink}
+                        image={member.profileIMG}
+                        githubLink={member.githubURL}
+                        linkedinLink={member.linkedinURL}
+                        portfolioLink={member.professionalURL}
                         jobStatus={member.jobStatus}
-                        school={member.school}
+                        emailAddress={member.emailAddress}
+                        phoneNumber={member.phoneNumber}
                     />
                 ))}
             </div>

@@ -84,7 +84,7 @@ class Modal extends React.Component {
                   <input className="modalInput" type="text" placeholder="Email..." />
                 </div>
                 <div className="col-md-6">
-                  <input className="modalInput" type="text" placeholder="Phone Number..." />
+                  <input className="modalInput" type="number" placeholder="Phone Number..." />
                 </div>
               </div>
 
@@ -106,10 +106,7 @@ class Modal extends React.Component {
                   <input className="modalInput" type="url" placeholder="Linkedin..." />
                 </div>
                 <div className="col-md-6">
-                  <select 
-                  // onChange={this.handleJobStatus} 
-                  // value={this.state.value} 
-                  name="jobStatus" id="job-status" className="form-control">
+                  <select name="jobStatus" id="job-status" className="form-control">
                     <option selected disabled>Job Status...</option>
                     <option value="Employed">Employed</option>
                     <option value="Actively-Looking">Actively Looking</option>

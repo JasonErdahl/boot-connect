@@ -32,7 +32,7 @@ export default {
   },
 
   // Gets all logins
-  getLogin: function() {
+  getLogins: function() {
     return axios.get("/api/login");
   },
   // Gets the login with the given id
@@ -53,11 +53,11 @@ export default {
     return axios.get("/api/members");
   },
   // Gets the login with the given id
-  getMembers: function(id) {
+  getMember: function(id) {
     return axios.get("/api/members/" + id);
   },
   // Deletes the login with the given id
-  deleteMembers: function(id) {
+  deleteMember: function(id) {
     return axios.delete("/api/members/" + id);
   },
   // Saves a login to the database

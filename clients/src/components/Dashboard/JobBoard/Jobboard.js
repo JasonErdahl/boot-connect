@@ -1,15 +1,7 @@
 import React, {Component} from "react";
-import DeleteBtn from "../../DeleteBtn";
 import API from "../../../utils/API";
-import { Link } from "react-router-dom";
 import { List, ListItem } from "../../List";
 import './Jobboard.css';
-
-// const Jobboard = props => (
-//   <div className="jobBoard">
-//      <h4>Current Opportunities</h4>
-//   </div>
-// );
 
 class jobBoard extends Component {
   state = {

@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     loginID:
     {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     firstName:
     {
@@ -31,7 +31,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    education:
+    githubURL:
+    {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    linkedinURL:
     {
       type: DataTypes.STRING,
       allowNull: true

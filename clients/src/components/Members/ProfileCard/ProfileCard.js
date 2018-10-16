@@ -6,7 +6,6 @@ const Profilecard = props => (
 
 <div className="Profilecard">
     <img src={props.image} alt="John"></img>
-    {/* <h4>{props.name}</h4> */}
     <p className="title">Developer</p>
     <p>{props.school}</p>
             <div className="links">
@@ -15,6 +14,8 @@ const Profilecard = props => (
                 <a href={props.portfolioLink}><i class="fa fa-folder-open"></i></a>
             </div>
     <p>Job Status: {props.jobStatus}</p>
+    <p className="contact"><i class="fas fa-envelope"></i> {props.emailAddress}</p>
+    <p className="contact"><i class="fas fa-phone-volume"></i> {props.phoneNumber}</p>
     <p><button id="contactBtn">{props.firstName} {props.lastName}</button></p>
 </div>
 
