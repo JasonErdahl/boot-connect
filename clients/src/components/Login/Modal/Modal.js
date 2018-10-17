@@ -32,6 +32,31 @@ class Modal extends React.Component {
   //Handle input field change
   handleinputchange = e => {
     this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
+    validInput = () => {
+    const optionalFields = [
+      'subscriber',
+      'profileIMG',
+      'phoneNumber',
+      'githubURL',
+      'professionalURL',
+      'linkedinURL',
+      'jobStatus'
+    ]
+
+    const inputs = Object.keys(this.state)
+    const requiredInputs = inputs.filter(input => !optionalFields.includes(input));
+    const populatedInputValues = requiredInputs.map(input => this.state[input])
+    const validRequiredInputValues = populatedInputValues.filter(value => value && value.length > 0)
+
+    return validRequiredInputValues.length === 5;
+  }
+
+  //Handle input field change
+  handleinputchange = e => {
+    this.setState({
       [e.target.name]: e.target.value
     })
   }
@@ -98,21 +123,10 @@ class Modal extends React.Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <input name="firstName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Firstname..." />
+                  <input name="firstName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="First Name (required)" value={this.state.firstName} />
                 </div>
                 <div className="col-md-6">
-                  <input name="lastName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Lastname..." />
-                </div>
-              </div>
-
-              <br></br>
-
-              <div className="row">
-                <div className="col-md-6">
-                  <input name="emailAddress" onChange={this.handleinputchange} className="modalInput" type="email" placeholder="Email..." />
-                </div>
-                <div className="col-md-6">
-                  <input name="phoneNumber" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Phone Number..." />
+                  <input name="lastName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Last Name (required)" value={this.state.lastName} />
                 </div>
               </div>
 
@@ -120,10 +134,10 @@ class Modal extends React.Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <input name="githubURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Github Link..." />
+                  <input name="emailAddress" onChange={this.handleinputchange} className="modalInput" type="email" placeholder="Email (required)" value={this.state.emailAddress} />
                 </div>
                 <div className="col-md-6">
-                  <input name="professionalURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Portfolio Link..." />
+                  <input name="phoneNumber" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Phone Number..." value={this.state.phoneNumber} />
                 </div>
               </div>
 
@@ -131,7 +145,18 @@ class Modal extends React.Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <input name="linkedinURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Linkedin..." />
+                  <input name="githubURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Github Link..." value={this.state.githubURL} />
+                </div>
+                <div className="col-md-6">
+                  <input name="professionalURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Portfolio Link..." value={this.state.professionalURL} />
+                </div>
+              </div>
+
+              <br></br>
+
+              <div className="row">
+                <div className="col-md-6">
+                  <input name="linkedinURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Linkedin..." value={this.state.linkedinURL} />
                 </div>
                 <div className="col-md-6">
                   <select name="jobStatus" id="job-status" className="form-control">
@@ -145,14 +170,15 @@ class Modal extends React.Component {
 
               <br></br>
               <h6 className="infoMsg">Create Your Login</h6>
-              <input name="loginID" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="loginID" />
-              <input name="Password" onChange={this.handleinputchange} className="modalInput" type="password" placeholder="Password" />
+              <input name="loginID" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Username (required)"  value={this.state.loginID} />
+              <input name="Password" onChange={this.handleinputchange} className="modalInput" type="password" placeholder="Password (required)"  value={this.state.Password} />
               <br></br><br></br>
-              <input onChange={this.handleinputchange} type="checkbox" value="subscribed" /> Subscribe to our newsletters
+              <input name="subscriber" onChange={this.handleinputchange} type="checkbox" checked={this.state.checked}  /> Subscribe to our newsletters<br />
+              <div className="modalAlert"><h6>*The post button appears after updating the required fields</h6></div>
           </div>
             <div className="modal-footer">
               <button type="button" id="closeModalBtn" className="btn btn-secondary" onClick={this.props.hideModal}>Close</button>
-              <button onClick={this.handleSubmit} type="button" id="saveModalBtn" className="btn btn-primary">Submit</button>
+              <button className={this.validInput() ? 'validInput btn btn-primary' : 'invalidInput btn btn-primary'} onClick = {this.handleSubmit} id="saveModalBtn">Post</button>
             </div>
           </div>
         </div>
