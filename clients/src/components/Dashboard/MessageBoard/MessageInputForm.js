@@ -13,7 +13,9 @@ import './Messageboard.css';
 
 
   class Messageinputform extends Component {
-  state = {  };
+  state = {  
+    messageError:""
+  };
 
   handleinputchange = e => {
     console.log('handling change')
@@ -47,6 +49,7 @@ import './Messageboard.css';
         console.log(data)
         Object.keys(this.state).forEach(key => {
           this.setState({[key]:''})
+          this.props.loadMessageboard();
         })
         
       }).catch(err =>{console.log(err)})
@@ -56,7 +59,8 @@ import './Messageboard.css';
 
   render() {
     return <div className="messageInputForm">
-     <input onChange={this.handleinputchange} className="message-input-info" type="text" placeholder="Drop a message" name="body" value={this.state.body}></input>
+    <div><h6>*The post button appears after adding text to the required fields</h6></div>
+     <input onChange={this.handleinputchange} className="message-input-info" type="text" placeholder="Drop a message (Required)" name="body" value={this.state.body}></input>
      <button className={this.validInput() ? 'validInput' : 'invalidInput'} onClick = {this.handleSubmit} id="msgPostBtn">Post</button>
   </div>
     

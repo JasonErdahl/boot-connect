@@ -30,6 +30,7 @@ class Jobinputform extends Component {
 
   handleSubmit = () => {
     if (this.validInput()) {
+      console.log('handlesubmit');
       this.postJob()
     }
   }
@@ -37,21 +38,24 @@ class Jobinputform extends Component {
   postJob = () => {
       API.saveDashboardJobs({
         ...this.state  // NAME AND DB FIELD MUST MATCH HERE
-      }).then(() => {
+      }).then((data) => {
+        console.log(data)
         Object.keys(this.state).forEach(key => {
-          this.setState({[key]:''})
+          this.setState({[key]:''});
+          this.props.loadJobboard();
         })
-      })
+      }).catch(err =>{console.log(err)})
 
   }
 
 
   render() {
     return <div className="jobInputForm">
-    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobTitle" placeholder="Job Title..." value={this.state.jobTitle} ></input>
-    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobCompany" placeholder="Company..." value={this.state.jobCompany}></input>
+    <div><h6>*The post button appears after adding text to the required fields</h6></div>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobTitle" placeholder="Job Title...(Required)" value={this.state.jobTitle} ></input>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobCompany" placeholder="Company...(Required)" value={this.state.jobCompany}></input>
     <br></br>
-    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobLocation" placeholder="Location..." value={this.state.jobLocation}></input>
+    <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobLocation" placeholder="Location...(Required)" value={this.state.jobLocation}></input>
     <input onChange={this.handleinputchange} className="job-info-input" type="url" name="jobURL" placeholder="Job link..." value={this.state.jobURL}></input>
     <br></br>
     <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobNotes" placeholder="Additonal notes..." value={this.state.jobNotes}></input>
