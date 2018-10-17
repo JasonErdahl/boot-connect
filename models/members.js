@@ -6,6 +6,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
+    Password:
+    {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     firstName:
     {
       type: DataTypes.STRING,
@@ -59,7 +64,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     profileIMG:
     {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB('medium'),
       allowNull: true
     },
     createDate: DataTypes.DATEONLY

@@ -1,17 +1,18 @@
 import React from "react";
 import './Modal.css';
+import API from '../../../utils/API'
 
 class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
       file: '',
       imagePreviewUrl: ''
     };
     this.handleImageChange = this.handleImageChange.bind(this);
   }
 
+  //For image preview
   handleImageChange(e) {
     e.preventDefault();
 
@@ -28,14 +29,45 @@ class Modal extends React.Component {
     reader.readAsDataURL(file)
   }
 
-  handleJobStatus = event => {
-    console.log("Event ", event)
+  //Handle input field change
+  handleinputchange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
+
+  handleSubmit = () => {
+      this.postMember()
+  }
+
+  postMember = () => {
+
+    const savePayload = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      emailAddress: this.state.emailAddress,
+      phoneNumber: this.state.phoneNumber,
+      professionalURL: this.state.professionalURL,
+      githubURL: this.state.githubURL,
+      linkedinURL: this.state.linkedinURL,
+      jobStatus: this.state.jobStatus,
+      profileIMG: this.state.imagePreviewUrl,
+      loginID: this.state.loginID,
+      Password: this.state.Password
+    }
+
+    API.saveMember(savePayload).then(() => {
+      Object.keys(this.state).forEach(key => {
+        this.setState({[key]:''})
+      })
+    })
+
+}
 
   render() {
 
     //Referenced https://gist.github.com/hartzis/0b77920380736f98e4f9 for preview image 
-    let {imagePreviewUrl} = this.state;
+    let { imagePreviewUrl } = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl) {
       $imagePreview = (<img id="profileImg" alt="profileImage" src={imagePreviewUrl} />);
@@ -57,30 +89,19 @@ class Modal extends React.Component {
               </div>
               <br></br>
               <form>
-              <label className="custom-file-upload">
-                <i className="fa fa-camera upload-button"></i> Select Profile
+                <label className="custom-file-upload">
+                  <i className="fa fa-camera upload-button"></i> Upload Profile
                 <input onChange={this.handleImageChange} type="file" id="file-upload" accept="image/*" />
-              </label>
+                </label>
               </form>
               <br></br><br></br>
 
               <div className="row">
                 <div className="col-md-6">
-                  <input className="modalInput" type="text" placeholder="Firstname..." />
+                  <input name="firstName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Firstname..." />
                 </div>
                 <div className="col-md-6">
-                  <input className="modalInput" type="text" placeholder="Lastname..." />
-                </div>
-              </div>
-
-              <br></br>
-
-              <div className="row">
-                <div className="col-md-6">
-                  <input className="modalInput" type="text" placeholder="Email..." />
-                </div>
-                <div className="col-md-6">
-                  <input className="modalInput" type="number" placeholder="Phone Number..." />
+                  <input name="lastName" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Lastname..." />
                 </div>
               </div>
 
@@ -88,10 +109,10 @@ class Modal extends React.Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <input className="modalInput" type="url" placeholder="Github Link..." />
+                  <input name="emailAddress" onChange={this.handleinputchange} className="modalInput" type="email" placeholder="Email..." />
                 </div>
                 <div className="col-md-6">
-                  <input className="modalInput" type="url" placeholder="Portfolio Link..." />
+                  <input name="phoneNumber" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Phone Number..." />
                 </div>
               </div>
 
@@ -99,7 +120,18 @@ class Modal extends React.Component {
 
               <div className="row">
                 <div className="col-md-6">
-                  <input className="modalInput" type="url" placeholder="Linkedin..." />
+                  <input name="githubURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Github Link..." />
+                </div>
+                <div className="col-md-6">
+                  <input name="professionalURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Portfolio Link..." />
+                </div>
+              </div>
+
+              <br></br>
+
+              <div className="row">
+                <div className="col-md-6">
+                  <input name="linkedinURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Linkedin..." />
                 </div>
                 <div className="col-md-6">
                   <select name="jobStatus" id="job-status" className="form-control">
@@ -113,14 +145,14 @@ class Modal extends React.Component {
 
               <br></br>
               <h6 className="infoMsg">Create Your Login</h6>
-              <input className="modalInput" type="text" placeholder="Username" />
-              <input className="modalInput" type="password" placeholder="Password" />
+              <input name="loginID" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="loginID" />
+              <input name="Password" onChange={this.handleinputchange} className="modalInput" type="password" placeholder="Password" />
               <br></br><br></br>
-              <input type="checkbox" value="subscribed" /> Subscribe to our newsletters
+              <input onChange={this.handleinputchange} type="checkbox" value="subscribed" /> Subscribe to our newsletters
           </div>
             <div className="modal-footer">
               <button type="button" id="closeModalBtn" className="btn btn-secondary" onClick={this.props.hideModal}>Close</button>
-              <button type="button" id="saveModalBtn" className="btn btn-primary">Submit</button>
+              <button onClick={this.handleSubmit} type="button" id="saveModalBtn" className="btn btn-primary">Submit</button>
             </div>
           </div>
         </div>
