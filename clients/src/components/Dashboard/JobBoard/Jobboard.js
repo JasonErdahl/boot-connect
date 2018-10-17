@@ -30,7 +30,7 @@ class jobBoard extends Component {
       <List>
         {this.props.jobs.map(job => (
           <ListItem key={job._id}>
-              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, {job.jobURL}, {job.jobNotes}
+              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, <a href={"http://"+job.jobURL} target="_blank" rel="noopener noreferrer">{job.jobURL}</a>, {job.jobNotes}
           </ListItem>
         ))}
       </List>

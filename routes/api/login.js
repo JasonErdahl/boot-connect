@@ -2,7 +2,7 @@ const router = require("express").Router();
 const loginController = require("../../controllers/loginController");
 const passport = require('passport');
 
-// Matches with "/api/books"
+
 router.route("/")
   
   .get(loginController.findAll)
@@ -12,7 +12,6 @@ router.route("/")
   },
     passport.authenticate("local"), loginController.create);
 
-// Matches with "/api/books/:id"
 router
   .route("/:id")
   .get(loginController.findById)
