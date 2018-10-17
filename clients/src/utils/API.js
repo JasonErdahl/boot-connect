@@ -3,14 +3,12 @@ import axios from "axios";
 export default {
   // Gets all dashboardJobs
   getDashboardJobs: function() {   
-     console.log('getDashboardJobs1')
-
-
+     console.log('getDashboardJobs')
     return axios.get("/api/dashboardJobs");
   },
   // Gets the dashboardJob with the given id
   // Deletes the dashboardJob with the given id
-  deleteDashboardJobs: function(id) {
+  deleteDashboardJob: function(id) {
     return axios.delete("/api/dashboardJobs/" + id);
   },
   // Saves a dashboardJob to the database
@@ -61,7 +59,7 @@ export default {
     return axios.delete("/api/members/" + id);
   },
   // Saves a login to the database
-  saveMembers: function(membersData) {
+  saveMember: function(membersData) {
     return axios.post("/api/members", membersData);
   }
 };

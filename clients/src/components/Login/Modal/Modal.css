@@ -1,6 +1,7 @@
 .modal{
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
+    overflow-y: auto;
   }
   
   .modal-header{

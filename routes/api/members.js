@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const membersController = require("../../controllers/membersController");
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
-// Matches with "/api/books"
 router.route("/")
   .get(membersController.findAll)
-  .post(membersController.create);
+  .post(upload.any(), membersController.create);
 
-// Matches with "/api/books/:id"
 router
   .route("/:id")
   .get(membersController.findById)
