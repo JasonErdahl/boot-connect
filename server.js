@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const AWS = require("aws-sdk");
 const keys = require("./keys.js")
+const passport = require('passport')
+const env = require('dotenv').load()
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 const db = require("./models");
 
 // Define middleware here
+require('./config/passportConfig.js')(app, passport)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -53,9 +56,13 @@ snsPromise
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({force:true}).then(function () {
+db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {
       console.log("App listening on localhost:" + PORT);
     });
   });
 
+  // Passport
+
+
+  

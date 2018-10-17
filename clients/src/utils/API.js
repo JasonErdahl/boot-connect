@@ -34,8 +34,8 @@ export default {
     return axios.get("/api/login");
   },
   // Gets the login with the given id
-  getLogin: function(id) {
-    return axios.get("/api/login/" + id);
+  login: function(username, password) {
+    return axios.post("/api/login/", {username, password});
   },
   // Deletes the login with the given id
   deleteLogin: function(id) {
@@ -44,7 +44,7 @@ export default {
   // Saves a login to the database
   saveLogin: function(loginData) {
     return axios.post("/api/login", loginData);
-  },
+  }, 
 
   // Gets all logins
   getMembers: function() {

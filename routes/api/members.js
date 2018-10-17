@@ -2,9 +2,12 @@ const router = require("express").Router();
 const membersController = require("../../controllers/membersController");
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
+const passport = require('passport')
 
 router.route("/")
-  .get(membersController.findAll)
+  .get(
+   passport.authenticate('local'),
+     membersController.findAll)
   .post(upload.any(), membersController.create);
 
 router
@@ -12,5 +15,7 @@ router
   .get(membersController.findById)
   .put(membersController.update)
   .delete(membersController.remove);
+
+  
 
 module.exports = router;
