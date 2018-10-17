@@ -20,6 +20,7 @@
   background-color: rgba(0,0,0,0.30);
   text-align: left;
   border: 1px solid teal;
+  word-break: break-all;
 }
 
 .list-overflow-container li * {

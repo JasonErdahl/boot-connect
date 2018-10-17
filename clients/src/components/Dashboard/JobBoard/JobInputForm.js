@@ -51,7 +51,7 @@ class Jobinputform extends Component {
 
   render() {
     return <div className="jobInputForm">
-    <div><h6>*The post button appears after adding text to the required fields</h6></div>
+    <div><h6>*The post button appears after adding text to the required field</h6></div>
     <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobTitle" placeholder="Job Title...(Required)" value={this.state.jobTitle} ></input>
     <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobCompany" placeholder="Company...(Required)" value={this.state.jobCompany}></input>
     <br></br>
