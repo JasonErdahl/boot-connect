@@ -1,11 +1,9 @@
 import React, {Component} from "react";
-import API from "../../../utils/API";
 import { List, ListItem } from "../../List";
 import './Jobboard.css';
 
 class jobBoard extends Component {
   state = {
-    jobs: [],
     jobTitle: "",
     jobCompany: "",
     jobLocation: "",
@@ -14,36 +12,25 @@ class jobBoard extends Component {
 
   componentDidMount() {
     console.log("Did Mount")
-    this.loadJobboard();
+    this.props.loadJobboard();
   }
 
-  loadJobboard = () => {
-    API.getDashboardJobs()
-      .then(res => {
-        console.log(res)
-        this.setState({ jobs: res.data.reverse(), jobTitle: "", jobCompany: "", jobLocation: "", jobURL: "", jobNotes: "" }, () => {console.log(this.state)})
-
-      }
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteJobboard = id => {
-    API.deleteDashboardJobs(id)
-      .then(res => this.loadJobboard())
-      .catch(err => console.log(err));
-  };
+  // deleteJobboard = id => {
+  //   API.deleteDashboardJobs(id)
+  //     .then(res => this.props.loadJobboard())
+  //     .catch(err => console.log(err));
+  // };
   
 
   render() {
-  console.log(this.state);
+  console.log(this.props);
   return <div className="jobBoard">
     <h4>Current Opportunities</h4>
-    {this.state.jobs.length ? (
+    {this.props.jobs.length ? (
       <List>
-        {this.state.jobs.map(job => (
+        {this.props.jobs.map(job => (
           <ListItem key={job._id}>
-              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, {job.jobURL}
+              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, {job.jobURL}, {job.jobNotes}
           </ListItem>
         ))}
       </List>

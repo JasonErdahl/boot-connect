@@ -60,11 +60,11 @@ input::placeholder{
 }
 
 .invalidInput {
-display:block!important;
+display:none!important;
 }
 
 .validInput {
-display:none!important;
+display:block!important;
 }
 #jobPostBtn{
     border-radius: 15px;
