@@ -13,11 +13,11 @@ class LoginForm extends Component {
           <p className="text">if (accountExist = = = true)</p>
           <p className="text"></p>
           <div>
-            <input id="loginInput" type="text" placeholder="Username"></input>
+            <input id="loginUsername" type="text" placeholder="Username"></input>
           </div>
           <br></br>
           <div>
-            <input id="loginInput" type="password" placeholder="Password"></input>
+            <input id="loginPassword" type="password" placeholder="Password"></input>
           </div>
           <br></br>
           <div>

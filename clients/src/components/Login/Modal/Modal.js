@@ -43,7 +43,8 @@ class Modal extends React.Component {
       'githubURL',
       'professionalURL',
       'linkedinURL',
-      'jobStatus'
+      'jobStatus',
+      'file-upload'
     ]
 
     const inputs = Object.keys(this.state)
@@ -51,7 +52,7 @@ class Modal extends React.Component {
     const populatedInputValues = requiredInputs.map(input => this.state[input])
     const validRequiredInputValues = populatedInputValues.filter(value => value && value.length > 0)
 
-    return validRequiredInputValues.length === 5;
+    return validRequiredInputValues.length >= 5;
   }
 
   //Handle input field change
@@ -116,7 +117,7 @@ class Modal extends React.Component {
               <form>
                 <label className="custom-file-upload">
                   <i className="fa fa-camera upload-button"></i> Upload Profile
-                <input onChange={this.handleImageChange} type="file" id="file-upload" accept="image/*" />
+                <input name="file-upload" onChange={this.handleImageChange} type="file" id="file-upload" accept="image/*" />
                 </label>
               </form>
               <br></br><br></br>
@@ -179,6 +180,7 @@ class Modal extends React.Component {
             <div className="modal-footer">
               <button type="button" id="closeModalBtn" className="btn btn-secondary" onClick={this.props.hideModal}>Close</button>
               <button className={this.validInput() ? 'validInput btn btn-primary' : 'invalidInput btn btn-primary'} onClick = {this.handleSubmit} id="saveModalBtn">Post</button>
+              {console.log(JSON.stringify(this.state))}
             </div>
           </div>
         </div>
