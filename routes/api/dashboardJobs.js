@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const dashboardJobsController = require("../../controllers/dashboardJobsController");
+const isAuthenticated = require('../api/isAuthenticated') 
 
 router.route("/")
-  .get(dashboardJobsController.findAll)
-  .post(dashboardJobsController.create);
+  .get(isAuthenticated, dashboardJobsController.findAll)
+  .post(isAuthenticated, dashboardJobsController.create);
 
 router
   .route("/:id")

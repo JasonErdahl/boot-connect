@@ -5,9 +5,7 @@ const upload = multer({ dest: 'uploads/' })
 const passport = require('passport')
 
 router.route("/")
-  .get(
-   passport.authenticate('local'),
-     membersController.findAll)
+  .get(membersController.findAll)
   .post(upload.any(), membersController.create);
 
 router
@@ -17,5 +15,4 @@ router
   .delete(membersController.remove);
 
   
-
 module.exports = router;
