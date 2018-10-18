@@ -13,6 +13,15 @@ class messageBoard extends Component {
     this.props.loadMessageboard();
   }
 
+  validDate = (dateVal) => {
+    var date = new Date(dateVal);
+    var dateOutput = (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + ">");
+    //console.log("date: "+date)
+    //console.log("inputs: "+dateOutput);
+    //console.log(`-------------------------------------------\n`)
+    return dateOutput;
+  }
+
   render() {
   console.log(this.state);
   return <div className="messageBoard">
@@ -21,7 +30,7 @@ class messageBoard extends Component {
       <List>
         {this.props.messages.map(message => (
           <ListItem key={message._id}>
-              {message.body}
+             {this.validDate(message.createdAt)} {message.body}
           </ListItem>
         ))}
       </List>

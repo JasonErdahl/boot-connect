@@ -20,7 +20,14 @@ class jobBoard extends Component {
   //     .then(res => this.props.loadJobboard())
   //     .catch(err => console.log(err));
   // };
-  
+  validDate = (dateVal) => {
+    var date = new Date(dateVal);
+    var dateOutput = (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + ">");
+    //console.log("date: "+date)
+    //console.log("inputs: "+dateOutput);
+    //console.log(`-------------------------------------------\n`)
+    return dateOutput;
+  }
 
   render() {
   console.log(this.props);
@@ -30,7 +37,7 @@ class jobBoard extends Component {
       <List>
         {this.props.jobs.map(job => (
           <ListItem key={job._id}>
-              {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, <a href={"http://"+job.jobURL} target="_blank" rel="noopener noreferrer">{job.jobURL}</a>, {job.jobNotes}
+              {this.validDate(job.createdAt)} {job.jobTitle} , {job.jobCompany}, {job.jobLocation}, <a href={"http://"+job.jobURL} target="_blank" rel="noopener noreferrer">{job.jobURL}</a>, {job.jobNotes}
           </ListItem>
         ))}
       </List>
