@@ -1,7 +1,26 @@
 import React, {Component} from 'react';
 import './LoginForm.css';
+import API from '../../../utils/API';
+
 
 class LoginForm extends Component {
+
+  state={
+
+  }
+
+  handleInputChange = name => event => {
+    console.log(name)
+       this.setState({
+          [name]: event.target.value
+       })
+  }
+
+  handleLogin = event =>{
+    event.preventDefault()
+    API.login(this.state.loginID, this.state.Password).then(data => 
+      this.props.isLoginSuccessful())
+  }
 
   render() {
 
@@ -13,15 +32,15 @@ class LoginForm extends Component {
           <p className="text">if (accountExist = = = true)</p>
           <p className="text"></p>
           <div>
-            <input id="loginUsername" type="text" placeholder="Username"></input>
+            <input onChange={this.handleInputChange('loginID')} id="loginUsername" type="text" placeholder="Username"></input>
           </div>
           <br></br>
           <div>
-            <input id="loginPassword" type="password" placeholder="Password"></input>
+            <input onChange={this.handleInputChange('Password')} id="loginPassword" type="password" placeholder="Password"></input>
           </div>
           <br></br>
           <div>
-            <button id="loginBtn">Login</button>
+            <button onClick={this.handleLogin} id="loginBtn">Login</button>
           </div>
           <br></br>
           <p className="text">else</p>

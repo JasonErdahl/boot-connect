@@ -7,38 +7,53 @@ import MembersPage from './pages/MemberPage/MemberPage';
 
 class App extends Component {
 
- state = {
-   currentPage: "LoginPage"
- };
+  state = {
+    currentPage: "LoginPage",
+    loggedIn: false
+  };
 
- componentDidMount() {
-}
+  componentDidMount() {
+  }
 
- handlePageChange = page => {
-   this.setState({ currentPage: page });
- };
+  //If log in is successful then takes user to dasjboard page
+  isLoginSuccessful = data => {
+    this.setState({
+      currentPage: "DashboardPage",
+      loggedIn: true
+    })
+  }
 
- renderPage = () => {
-   if (this.state.currentPage === "DashboardPage") {
-     return <DashboardPage />;
-   } else if (this.state.currentPage === "LoginPage") {
-     return <LoginPage />;
-   } else if (this.state.currentPage === "MemberPage") {
-     return <MembersPage />;
-   }
- };
+  handlePageChange = page => {
+    this.setState({
+       currentPage: page,
+       loggedIn: page === 'LoginPage' ? false : this.state.loggedIn 
+      });
+  };
 
- render() {
-   return (
-     <div style={{position: 'relative'}}>
-       <Navbar
-         currentPage={this.state.currentPage}
-         handlePageChange={this.handlePageChange}
-       />
-       {this.renderPage()}
-     </div>
-   );
- }
+  renderPage = () => {
+    if (this.state.currentPage === "DashboardPage" && this.state.loggedIn) {
+      return <DashboardPage />;
+    } else if (this.state.currentPage === "LoginPage") {
+      return <LoginPage isLoginSuccessful={this.isLoginSuccessful} />;
+    } else if (this.state.currentPage === "MemberPage") {
+      return <MembersPage />;
+    }
+  };
+
+  render() {
+    return (
+      <div style={{ position: 'relative' }}>
+        {this.state.loggedIn ?
+          <Navbar
+            currentPage={this.state.currentPage}
+            handlePageChange={this.handlePageChange}
+          /> : null
+        }
+
+        {this.renderPage()}
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const dashboardMessagesController = require("../../controllers/dashboardMessagesController");
+const isAuthenticated = require('../api/isAuthenticated') 
 
 
 router.route("/")
-  .get(dashboardMessagesController.findAll)
-  .post(dashboardMessagesController.create);
+  .get(isAuthenticated, dashboardMessagesController.findAll)
+  .post(isAuthenticated, dashboardMessagesController.create);
 
 
 router
