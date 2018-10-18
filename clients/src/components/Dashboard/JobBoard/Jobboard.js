@@ -15,17 +15,10 @@ class jobBoard extends Component {
     this.props.loadJobboard();
   }
 
-  // deleteJobboard = id => {
-  //   API.deleteDashboardJobs(id)
-  //     .then(res => this.props.loadJobboard())
-  //     .catch(err => console.log(err));
-  // };
   validDate = (dateVal) => {
     var date = new Date(dateVal);
     var dateOutput = (date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + ">");
-    //console.log("date: "+date)
-    //console.log("inputs: "+dateOutput);
-    //console.log(`-------------------------------------------\n`)
+  
     return dateOutput;
   }
 

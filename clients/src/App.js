@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount() {
   }
 
-  //If log in is successful then takes user to dasjboard page
+  //If log in is successful then takes user to dashboard page
   isLoginSuccessful = data => {
     this.setState({
       currentPage: "DashboardPage",
@@ -43,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div style={{ position: 'relative' }}>
+        {/* Render navbar only when user is logged in */}
         {this.state.loggedIn ?
           <Navbar
             currentPage={this.state.currentPage}

@@ -21,7 +21,6 @@ class LoginPage extends Component {
       }
 
     fileSelectedHandler = event => {
-        console.log("event output: " , event)
         event.preventDefault();
     
         let reader = new FileReader();
