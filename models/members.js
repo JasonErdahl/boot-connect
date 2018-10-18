@@ -64,7 +64,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     profileIMG:
     {
-      type: DataTypes.BLOB('medium'),
+      type: DataTypes.BLOB('long'),
       allowNull: true
     },
     createDate: DataTypes.DATEONLY

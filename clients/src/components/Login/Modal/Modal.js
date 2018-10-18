@@ -31,6 +31,7 @@ class Modal extends React.Component {
 
   //Handle input field change
   handleinputchange = e => {
+    console.log(e.target.value)
     this.setState({
         [e.target.name]: e.target.value
       })
@@ -68,6 +69,7 @@ class Modal extends React.Component {
 
   postMember = () => {
 
+    //Set up payload to send to the url
     const savePayload = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -79,7 +81,8 @@ class Modal extends React.Component {
       jobStatus: this.state.jobStatus,
       profileIMG: this.state.imagePreviewUrl,
       loginID: this.state.loginID,
-      Password: this.state.Password
+      Password: this.state.Password,
+      subscriber: Boolean.valueOf(this.state.subscriber)
     }
 
     API.saveMember(savePayload).then(() => {
@@ -160,17 +163,18 @@ class Modal extends React.Component {
                   <input name="linkedinURL" onChange={this.handleinputchange} className="modalInput" type="url" placeholder="Linkedin..." value={this.state.linkedinURL} />
                 </div>
                 <div className="col-md-6">
-                  <select name="jobStatus" id="job-status" className="form-control">
+                  <select onChange={this.handleinputchange} name="jobStatus" id="job-status" className="form-control">
                     <option selected disabled>Job Status...</option>
                     <option value="Employed">Employed</option>
-                    <option value="Actively-Looking">Actively Looking</option>
-                    <option value="Open-to-new-opportunity">Open to new opportunity</option>
+                    <option value="Actively Looking">Actively Looking</option>
+                    <option value="Open to new opportunities">Open to new opportunities</option>
                   </select>
                 </div>
               </div>
 
               <br></br>
               <h6 className="infoMsg">Create Your Login</h6>
+                       
               <input name="loginID" onChange={this.handleinputchange} className="modalInput" type="text" placeholder="Username (required)"  value={this.state.loginID} />
               <input name="Password" onChange={this.handleinputchange} className="modalInput" type="password" placeholder="Password (required)"  value={this.state.Password} />
               <br></br><br></br>
