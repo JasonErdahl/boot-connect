@@ -4,7 +4,6 @@ const dashboardMessagesRoutes = require("./dashboardMessages");
 const loginRoutes = require("./login");
 const membersRoutes = require("./members");
 
-// Book routes
 router.use("/dashboardJobs", dashboardJobsRoutes);
 router.use("/dashboardMessages", dashboardMessagesRoutes);
 router.use("/login", loginRoutes);
