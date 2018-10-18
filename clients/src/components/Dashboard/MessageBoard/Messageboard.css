@@ -57,13 +57,11 @@ input::placeholder{
     font-weight: 600;
 }
 .invalidInput {
-    background: yellow;
-    color: black;
+display:none!important;
 }
 
 .validInput {
-    background: black;
-    color: #FAEBD7;
+display:block!important;
 }
 
 #msgPostBtn{

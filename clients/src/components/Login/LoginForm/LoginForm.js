@@ -32,11 +32,11 @@ class LoginForm extends Component {
           <p className="text">if (accountExist = = = true)</p>
           <p className="text"></p>
           <div>
-            <input onChange={this.handleInputChange('loginID')} id="loginInput" type="text" placeholder="Username"></input>
+            <input onChange={this.handleInputChange('loginID')} id="loginUsername" type="text" placeholder="Username"></input>
           </div>
           <br></br>
           <div>
-            <input onChange={this.handleInputChange('Password')} id="loginInput" type="password" placeholder="Password"></input>
+            <input onChange={this.handleInputChange('Password')} id="loginPassword" type="password" placeholder="Password"></input>
           </div>
           <br></br>
           <div>
