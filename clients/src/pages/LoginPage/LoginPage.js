@@ -42,7 +42,7 @@ class LoginPage extends Component {
 
         return (
                 <React.Fragment>
-                    <LoginForm showModal={this.showModal}>,
+                    <LoginForm isLoginSuccessful={this.props.isLoginSuccessful} showModal={this.showModal}>,
                     </LoginForm>
                     {this.state.showModal ? <Modal hideModal={this.hideModal} fileSelectedHandler={this.fileSelectedHandler}/> : null}
                 </React.Fragment>
