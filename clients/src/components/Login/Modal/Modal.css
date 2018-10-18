@@ -17,13 +17,16 @@
   .modalInput{
     border-radius: 10px;
     background: transparent;
-    padding: 10px 80px 2px 10px;
     outline: none;
     border: 1px dotted ;
     margin: 2%;
     font-weight: 700;
     color: black;
+    padding: 10px 0px 2px 10px;
+    min-width: 230px;
   }
+
+  .modalAlert {color:white;}
   
   .modalInput::placeholder{
     color: black;
@@ -32,6 +35,8 @@
   
   .modal-footer{
     background-color: black;
+    display: inline-flex;
+    width: -webkit-fill-available;
   }
   
   .modal-body{ background:url("https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-pinky.png");
@@ -57,6 +62,7 @@
     border: 1px solid #FAEBD7;
     background: transparent;
     color:  #ffffff;
+    margin-right:10px;
   }
   
   #closeModalBtn:hover{
@@ -116,11 +122,12 @@
   #job-status{
     border-radius: 10px;
     background: transparent;
-    padding: 10px 80px 2px 10px;
     outline: none;
     border: 1px dotted ;
     margin: 2%;
     color: black;
+    padding: 10px 0px 2px 10px;
+    max-width: 230px;
   }
 
   #profileImg{
