@@ -15,6 +15,7 @@ class App extends Component {
   componentDidMount() {
   }
 
+  //If log in is successful then takes user to dasjboard page
   isLoginSuccessful = data => {
     this.setState({
       currentPage: "DashboardPage",
