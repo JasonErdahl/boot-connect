@@ -30,11 +30,13 @@ if (process.env.NODE_ENV === "production") {
 //Set region
 AWS.config.update({ region: "us-east-1" });
 console.log('PROCESS.ENV.AWS '+ process.env);
+
 // Create publish parameters
 const params = {
   Message: "Hello Bootcamp!!!" /* required */,
   TopicArn: "arn:aws:sns:us-east-1:952591636899:Final_Project"
 };
+
 console.log(JSON.stringify(keys.AWS));
 // Create promise and SNS service object
 const snsPromise = new AWS.SNS(keys.AWS)
@@ -56,7 +58,7 @@ snsPromise
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({force:true}).then(function () {
+db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {
       console.log("App listening on localhost:" + PORT);
     });

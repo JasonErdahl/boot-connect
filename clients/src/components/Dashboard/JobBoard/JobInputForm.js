@@ -60,7 +60,6 @@ class Jobinputform extends Component {
     <br></br>
     <input onChange={this.handleinputchange} className="job-info-input" type="text" name="jobNotes" placeholder="Additonal notes..." value={this.state.jobNotes}></input>
     <button className={this.validInput() ? 'validInput' : 'invalidInput'} onClick = {this.handleSubmit} id="jobPostBtn">Post</button>
-    {console.log(JSON.stringify(this.state))}
   </div>
     
   }

@@ -52,11 +52,7 @@ class Modal extends React.Component {
     const requiredInputs = inputs.filter(input => !optionalFields.includes(input));
     const populatedInputValues = requiredInputs.map(input => this.state[input])
     const validRequiredInputValues = populatedInputValues.filter(value => value && value.length > 0)
-    console.log("inputs: "+inputs);
-    console.log("requiredInputs: "+requiredInputs);
-    console.log("populatedInputValues: "+populatedInputValues);
-    console.log("validRequiredInputValues: "+validRequiredInputValues);
-    console.log(`-------------------------------------------\n`)
+
     return validRequiredInputValues.length >= 5;
   }
 
@@ -188,8 +184,6 @@ class Modal extends React.Component {
             <div className="modal-footer">
               <button type="button" id="closeModalBtn" className="btn btn-secondary" onClick={this.props.hideModal}>Close</button>
               <button className={this.validInput() ? 'validInput btn btn-primary' : 'invalidInput btn btn-primary'} onClick = {this.handleSubmit} id="saveModalBtn">Post</button>
-              {console.log("this.state: "+JSON.stringify(this.state))}
-
             </div>
           </div>
         </div>
