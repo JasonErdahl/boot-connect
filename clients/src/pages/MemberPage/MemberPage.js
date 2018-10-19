@@ -27,7 +27,7 @@ class MemberPage extends Component {
     render() {
 
         //To switch to  background for each page
-        document.body.style.background = "url('https://jasonerdahl.github.io/assets/images/assets/backgroundColor3.png')"
+        document.body.style.background = "url('https://jasonerdahl.github.io/assets/images/backgroundColor3.png')"
 
         return (
             <div>

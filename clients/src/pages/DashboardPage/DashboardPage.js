@@ -38,7 +38,7 @@ class DashboardPage extends Component {
     render()
     {
 
-        document.body.style.background = "url('https://jasonerdahl.github.io/assets/images/assets/backgroundColor2.svg')"
+        document.body.style.background = "url('https://jasonerdahl.github.io/assets/images/backgroundColor2.svg')"
 
         return (
             <div className="DashboardPage">
