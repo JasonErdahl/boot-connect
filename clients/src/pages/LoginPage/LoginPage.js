@@ -37,7 +37,7 @@ class LoginPage extends Component {
 
     render() {
 
-        document.body.style.background = "url('../../../assets/backgroundColor1.png')"
+        document.body.style.background = "url('https://jasonerdahl.github.io/assets/images/BackgroundColor1.png')"
 
         return (
                 <React.Fragment>
