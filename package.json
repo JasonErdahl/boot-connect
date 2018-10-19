@@ -10,7 +10,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'clients/*'\" \"npm run clients\"",
     "clients": "cd clients && npm run start",
     "seed": "node scripts/seedDB.js",
-    "install": "cd clients && yarn install",
+    "install": "cd clients && npm install",
     "build": "cd clients && npm run build",
     "heroku-postbuild": "npm run build"
   },
