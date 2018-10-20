@@ -34,7 +34,8 @@ class MemberPage extends Component {
                 {this.state.members.map(member => {
 
                     //Convert buffers back to image
-                    const decodedImage = String.fromCharCode.apply(null, new Uint16Array(member.profileIMG.data));
+                    
+                    const decodedImage = member.profileIMG && member.profileIMG.data ? String.fromCharCode.apply(null, new Uint16Array(member.profileIMG.data)) : null;
                     return (
                         <Profilecard
                             firstName={member.firstName}
