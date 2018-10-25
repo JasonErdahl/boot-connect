@@ -44,8 +44,7 @@ class Modal extends React.Component {
       'githubURL',
       'professionalURL',
       'linkedinURL',
-      'jobStatus',
-      'imagePreviewUrl'
+      'jobStatus'
     ]
 
     const inputs = Object.keys(this.state)
@@ -53,7 +52,7 @@ class Modal extends React.Component {
     const populatedInputValues = requiredInputs.map(input => this.state[input])
     const validRequiredInputValues = populatedInputValues.filter(value => value && value.length > 0)
 
-    return validRequiredInputValues.length >= 5;
+    return validRequiredInputValues.length >= 6;
   }
 
   //Handle input field change
